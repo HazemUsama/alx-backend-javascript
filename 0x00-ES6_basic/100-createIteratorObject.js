@@ -1,5 +1,5 @@
 export default function createIteratorObject(report) {
-  const itr = {
+  return {
     [Symbol.iterator]() {
       const employees = [];
       for (const department in report.allEmployees) {
@@ -17,5 +17,4 @@ export default function createIteratorObject(report) {
       }
     }
   };
-  return itr;
 }
