@@ -1,7 +1,7 @@
 export default function cleanSet(set, startString) {
   const strs = [];
 
-  if (startString === '') {
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
 
