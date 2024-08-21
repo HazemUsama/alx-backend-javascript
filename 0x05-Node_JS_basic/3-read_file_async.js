@@ -8,9 +8,9 @@ function countStudents(filePath) {
       }
       if (data) {
         const students = data
-          .slice(1)
           .trim()
-          .split('\n');
+          .split('\n')
+          .slice(1);
 
         console.log(`Number of students: ${students.length}`);
 
