@@ -52,7 +52,8 @@ const app = http.createServer((req, res) => {
         res.end(text);
       })
       .catch((err) => {
-        res.end(err.message);
+        const text = ['This is the list of our students', err.message].join('\n');
+        res.end(text);
       });
   }
 });
