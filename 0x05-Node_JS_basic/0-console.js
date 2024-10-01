@@ -1,5 +1,5 @@
 function displayMessage(message) {
-  process.stdout.write(String(message) + '\n');
+  console.log(message);
 }
 
 module.exports = displayMessage;
