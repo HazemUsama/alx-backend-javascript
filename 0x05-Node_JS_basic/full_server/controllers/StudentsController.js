@@ -1,14 +1,13 @@
-import readDatabase from '../utils.js'
+import readDatabase from '../utils';
 
 export default class StudentsController {
-
   static getAllStudents(req, res) {
     const DB = process.argv.length > 2 ? process.argv[2] : '';
 
     res.setHeader('Content-Type', 'text/plain');
     readDatabase(DB)
       .then((fieldCounts) => {
-        const text = ['This is the list of our students']
+        const text = ['This is the list of our students'];
         fieldCounts.forEach((names, field) => {
           text.push(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
         });
@@ -26,7 +25,6 @@ export default class StudentsController {
 
     res.setHeader('Content-Type', 'text/plain');
     if (major === 'CS' || major === 'SWE') {
-
       readDatabase(DB)
         .then((fieldCounts) => {
           console.log(fieldCounts.get(major));
@@ -39,7 +37,6 @@ export default class StudentsController {
         .catch((err) => {
           res.status(500).send(err.message);
         });
-
     } else {
       res.status(500).send('Major parameter must be CS or SWE');
     }
